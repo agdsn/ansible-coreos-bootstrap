@@ -4,6 +4,7 @@
   raw: "stat {{ ansible_python_dir }}/.bootstrapped_{{ python_version }}_{{ pypy_version }}"
   register: need_python
   ignore_errors: yes
+  check_mode: no
   changed_when: False
 
 - name: Run install_python.sh
@@ -19,6 +20,7 @@
   shell: "{{ ansible_python_interpreter }} -m pip --version"
   register: need_pip
   ignore_errors: yes
+  check_mode: no
   changed_when: False
 
 - name: Install pip
